@@ -8,50 +8,57 @@ const weatherBaseUrl = 'http://dataservice.accuweather.com/forecasts/v1/daily/1d
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const FetchData = () =>{
-    const [city, setCity] = useState('');
-    const [cityWeather, setCityWeather] = useState([]);
-    const [errorMessage, setErrorMessage] = useState(null);
-    const [loading, setLoading] = useState(false);
+  const [city, setCity] = useState('');
+  const [cityWeather, setCityWeather] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const errorText = (message) =>{
+    setErrorMessage(message);
+    setTimeout(() => {setErrorMessage(null)}, 3000)
+  } 
 
   const handleSubmit = async (event) =>{
     event.preventDefault()
-    setErrorMessage(null);
-    setCityWeather([]);
-    setLoading(true);
-
-    try {
-      const response = await fetch(`${cityBaseUrl}?apikey=${apiKey}&q=${city}`);
-      const cityData = await response.json();
-      const cityInfo = {
-        key: cityData[0].Key,
-        name: cityData[0].EnglishName,
-        country: cityData[0].Country.EnglishName
-      };    
+    if (!city){
+      errorText('Please enter name of a city');
+      setLoading(false);
+    }else{
+      setErrorMessage(null);
+      setCityWeather([]);
+      setLoading(true);
+  
       try {
-        const res = await fetch(`${weatherBaseUrl}${cityInfo.key}?apikey=${apiKey}&metric=true`)
-        const weatherData = await res.json();
-        const dailyForecasts = weatherData.DailyForecasts[0];
-        const weatherInfo = {
-          minTemp: dailyForecasts.Temperature.Minimum.Value,
-          maxTemp: dailyForecasts.Temperature.Maximum.Value,
-          dayIcon: dailyForecasts.Day.Icon,
-          dayIconPhrase: dailyForecasts.Day.IconPhrase,
-          nightIcon: dailyForecasts.Night.Icon,
-          nightIconPhrase: dailyForecasts.Night.IconPhrase
+        const response = await fetch(`${cityBaseUrl}?apikey=${apiKey}&q=${city}`);
+        const cityData = await response.json();
+        const cityInfo = {
+          key: cityData[0].Key,
+          name: cityData[0].EnglishName,
+          country: cityData[0].Country.EnglishName
+        };    
+        try {
+          const res = await fetch(`${weatherBaseUrl}${cityInfo.key}?apikey=${apiKey}&metric=true`)
+          const weatherData = await res.json();
+          const dailyForecasts = weatherData.DailyForecasts[0];
+          const weatherInfo = {
+            minTemp: dailyForecasts.Temperature.Minimum.Value,
+            maxTemp: dailyForecasts.Temperature.Maximum.Value,
+            dayIcon: dailyForecasts.Day.Icon,
+            dayIconPhrase: dailyForecasts.Day.IconPhrase,
+            nightIcon: dailyForecasts.Night.Icon,
+            nightIconPhrase: dailyForecasts.Night.IconPhrase
+          }
+          setCityWeather([cityInfo,weatherInfo]);
+          setLoading(false);
+        } catch (error) {
+          errorText('Weather info of this city is not available');
+          setLoading(false);
         }
-        setCityWeather([cityInfo,weatherInfo]);
-        setLoading(false);
       } catch (error) {
-        setErrorMessage('Weather info of this city is not available');
-        setTimeout(() => {setErrorMessage(null)}, 3000)
+        errorText('City is not found, please search again');
         setLoading(false);
       }
-    } catch (error) {
-      setErrorMessage('City is not found, please search again');
-      setTimeout(() => {setErrorMessage(null)}, 3000)
-      setLoading(false);
-    }
-
+    }   
   }
 
     return(
