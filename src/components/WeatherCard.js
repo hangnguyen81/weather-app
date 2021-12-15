@@ -11,7 +11,7 @@ const WeatherCard = ({info}) =>{
                 <>
                 <div>
                     <h4>Temperature</h4>
-                    <p className="temperature"><span className="temperature-impress">{weather.maxTemp}</span>&#8451;</p>
+                    <p><span className="temperature-impress">{weather.maxTemp}</span><span className="temperature-celcius-degree">&#8451;</span></p>
                 </div>
                 <div>
                     <h4>Day time</h4>

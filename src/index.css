@@ -134,11 +134,17 @@ button:focus{
   justify-items: center;
 }
 .temperature{
-  font-size: var(--fs-h2);
+  
   margin-top: 0;
 }
 .temperature-impress{
   font-weight: 700;
+  font-size: 3rem;
+}
+.temperature-celcius-degree{
+  position: relative;
+  top: -20px;
+  font-size: var(--fs-h3);
 }
 /* Footer */
 footer{
