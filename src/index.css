@@ -45,6 +45,7 @@ body{
   font-family: var(--ff-primary);
   line-height: 1.6;
 }
+
 .weather-app{
   max-width: var(--max-width);
   min-width: var(--min-width);
@@ -57,6 +58,7 @@ body{
 .weather-app-header{
   text-align: center;
 }
+
 .header-title{
   text-transform: uppercase;
   font-size: var(--fs-h3);
@@ -64,11 +66,13 @@ body{
   letter-spacing: var(--spacing);
   margin-bottom: 0;
 }
+
 .header-subtitle{
   margin-top: 0;
   color: var(--clr-grey);
   font-weight: var(--fw-light);
 }
+
 /* Search form */
 .search-form{
   display: grid;
@@ -79,6 +83,7 @@ body{
 input, button{
   padding: .5rem;
 }
+
 input:focus{
   outline: none;
 }
@@ -106,6 +111,7 @@ button:focus{
   margin-top: 1rem;
   color: red;
 }
+
 .loading{
   font-size: var(--fs-h3);
   text-align: center;
@@ -120,6 +126,7 @@ button:focus{
   box-shadow: var(--light-shadow);
   text-align: center;
 }
+
 .text-impress{
   background-color: var(--clr-accent);
   color: var(--clr-dark);
@@ -127,25 +134,25 @@ button:focus{
   padding: .3rem 1rem;
   margin-bottom: 0;
 }
+
 .weather-card-day-night{
   display: grid;
   grid-template-columns: auto auto;
   gap: 1rem;
   justify-items: center;
 }
-.temperature{
-  
-  margin-top: 0;
-}
+
 .temperature-impress{
   font-weight: 700;
   font-size: 3rem;
 }
+
 .temperature-celcius-degree{
   position: relative;
   top: -20px;
   font-size: var(--fs-h3);
 }
+
 /* Footer */
 footer{
   color: var(--clr-grey);

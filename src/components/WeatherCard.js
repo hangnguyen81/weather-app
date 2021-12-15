@@ -25,7 +25,7 @@ const WeatherCard = ({info}) =>{
                 <>
                 <div>
                     <h4>Temperature</h4>
-                    <p className="temperature"><span className="temperature-impress">{weather.minTemp}</span>&#8451;</p>
+                    <p><span className="temperature-impress">{weather.minTemp}</span><span className="temperature-celcius-degree">&#8451;</span></p>
                 </div>
                 <div>
                     <h4>Night time</h4>
