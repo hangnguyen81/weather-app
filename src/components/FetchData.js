@@ -3,8 +3,8 @@ import Notification from './Notification';
 import WeatherCard from './WeatherCard';
 
 
-const cityBaseUrl = 'http://dataservice.accuweather.com/locations/v1/cities/search';
-const weatherBaseUrl = 'http://dataservice.accuweather.com/forecasts/v1/daily/1day/';
+const cityBaseUrl = 'https://dataservice.accuweather.com/locations/v1/cities/search';
+const weatherBaseUrl = 'https://dataservice.accuweather.com/forecasts/v1/daily/1day/';
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const FetchData = () =>{
