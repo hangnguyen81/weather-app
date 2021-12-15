@@ -1,5 +1,6 @@
 # Weather App
 [![Netlify Status](https://api.netlify.com/api/v1/badges/46e1f0c1-6c05-44a5-aed9-3edfea13092d/deploy-status)](https://app.netlify.com/sites/weather-app-hangnguyen/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### `npm install`
