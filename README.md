@@ -14,6 +14,9 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+### `Accuweather api key`
+
+You need to register an account in accuweather.com. Afther that, click My Apps to create a new app (trial), then you will have your own api key to fetch data from this website
 
 ### App functions
 
@@ -21,7 +24,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - Weather info displays based on time of day; From 6:00 to 18:00 is day time weather, other time, night time info will be displayed
 
 ### App demo pictures
-
 
 Homepage of the app
 
