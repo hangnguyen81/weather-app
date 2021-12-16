@@ -24,7 +24,6 @@ const FetchData = () =>{
       errorText('Please enter name of a city');
       setLoading(false);
     }else{
-      setErrorMessage(null);
       setCityWeather([]);
       setLoading(true);
   
